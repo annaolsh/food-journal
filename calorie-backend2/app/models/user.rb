@@ -1,3 +1,3 @@
 class User < ApplicationRecord
-  belongs_to :food
+  has_many :journals
 end
