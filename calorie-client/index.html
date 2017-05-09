@@ -3,8 +3,51 @@
   <head>
     <meta charset="utf-8">
     <title>Welcome to Food Journal</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
   </head>
   <body>
-    <h1>Hello World</h1>
+    <div class="container">
+
+      <h1>Hello World</h1>
+
+      <div class="row">
+        <div class="col-md-6">
+          <form>
+            <div class="form-group">
+              <label for="formGroupExampleInput">User Name</label>
+              <input type="text" class="form-control" id="user_name" placeholder="Name">
+            </div>
+
+            <div class="form-group">
+              <label for="formGroupExampleInput2">Date</label>
+              <input type="text" class="form-control" id="date" placeholder="Date">
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="formGroupExampleInput2">Food Item</label>
+                  <input type="text" class="form-control" id="food_item" placeholder="Food Item">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="formGroupExampleInput2">Calories</label>
+                  <input type="number" class="form-control" id="calories" placeholder="Calories">
+                </div>
+              </div>
+            </div>
+
+            <button id="submitButton" type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div> <!-- col-md-6 -->
+      </div>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
   </body>
 </html>
