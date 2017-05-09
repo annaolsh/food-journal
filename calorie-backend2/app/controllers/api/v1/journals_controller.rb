@@ -1,4 +1,3 @@
-require "pry"
 class Api::V1::JournalsController < ApplicationController
   def index
     @journals = Journal.all

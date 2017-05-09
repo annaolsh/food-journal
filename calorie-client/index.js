@@ -1,25 +1,26 @@
 $(document).ready(function() {
   $('#submitButton').on('click', function(e){
     e.preventDefault();
-      // console.log("happy")
-    const userName = $('#user_name').val()
+    console.log("happy")
+    const user_id = $('#user_id').val()
     const date = $('#date').val()
-    const food_item = $('#food_item').val()
+    const food_id = $('#food_id').val()
     const calories = $('#calories').val()
     //const url = 'http://localhost:3000/api/v1/journals'
-
+    console.log("sad")
+    
     $.ajax({
       method: 'POST',
-      url: 'http://localhost:3000/api/v1/journals',
+      url: 'http://localhost:3000/api/v1/user_foods',
       data: {
-        food_name: food_item,
+        food_id: food_id,
         calories: calories,
-        date: date,
-        user_id: userName
+        user_id: user_id,
+        date: date
       }
     }).then(function(data) {
       console.log(data)
-      $('#showResults').append(`<li>${data.food_name} with ${data.calories} calories</li>`)
+      $('#showResults').append(`<li>${data.food_id} with ${data.calories} calories</li>`)
     })
   })
 })
