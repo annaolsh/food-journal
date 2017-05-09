@@ -1,13 +1,13 @@
 $(document).ready(function() {
   $('#submitButton').on('click', function(e){
     e.preventDefault();
-      console.log("happy")
+      // console.log("happy")
     const userName = $('#user_name').val()
     const date = $('#date').val()
     const food_item = $('#food_item').val()
     const calories = $('#calories').val()
     //const url = 'http://localhost:3000/api/v1/journals'
-  
+
     $.ajax({
       method: 'POST',
       url: 'http://localhost:3000/api/v1/journals',
@@ -19,6 +19,7 @@ $(document).ready(function() {
       }
     }).then(function(data) {
       console.log(data)
+      $('#showResults').append(`<li>${data.food_name} with ${data.calories} calories</li>`)
     })
   })
 })

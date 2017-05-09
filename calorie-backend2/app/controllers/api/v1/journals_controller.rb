@@ -6,7 +6,6 @@ class Api::V1::JournalsController < ApplicationController
   end
 
   def create
-
     @journal = Journal.new(
       food_name: params[:food_name],
       cuisine: params[:cuisine],
