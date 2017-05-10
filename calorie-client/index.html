@@ -14,25 +14,39 @@
         <div class="col-md-6">
           <form>
             <div class="form-group">
-              <label for="formGroupExampleInput">User Name</label>
-              <input type="text" class="form-control" id="user_id" placeholder="Name">
+              <label for="user_name_input">Name</label><br>
+              <select id="name-input">
+                <option value=1>Anna</option>
+                <option value=2>Daniel</option>
+                <option value=3>Sylvee</option>
+              </select>
             </div>
 
             <div class="form-group">
-              <label for="formGroupExampleInput2">Date</label>
+              <label for="date_input">Date</label>
               <input type="date" class="form-control" id="date" placeholder="Date">
             </div>
 
+
+
             <div class="row">
               <div class="col-md-6">
-                <div class="form-group">
-                  <label for="formGroupExampleInput2">Food Item</label>
+                <!-- <div class="form-group">
+                  <label for="food_name_input">Food Item</label>
                   <input type="text" class="form-control" id="food_id" placeholder="Food Item">
+                </div> -->
+                <div class="form-group">
+                  <label for="user_name_input">Food Item</label><br>
+                  <select id="food-input">
+                    <option value=1>Pasta</option>
+                    <option value=2>Pancake</option>
+                    <option value=3>Juice</option>
+                  </select>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <label for="formGroupExampleInput2">Calories</label>
+                  <label for="calories_num_input">Calories</label>
                   <input type="number" class="form-control" id="calories" placeholder="Calories">
                 </div>
               </div>
@@ -42,6 +56,7 @@
           </form>
         </div> <!-- col-md-6 -->
         <div class="col-md-6">
+          <h3 id="todayDate"></h3>
           <ul id="showResults"></ul>
         </div>
       </div>
