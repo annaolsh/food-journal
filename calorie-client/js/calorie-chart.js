@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  const CHART = document.getElementById("lineChart");
+  const CHART = document.getElementByIed("lineChart");
   const CHART2 = document.getElementById("lineChart2");
   console.log(CHART);
 
@@ -9,7 +9,6 @@ $(document).ready(function(){
   var yyyy = today.getFullYear();
   var present_day = `${yyyy}-0${mm}-${dd}`
   var sum = 0;
-
 
 
   $.ajax({
