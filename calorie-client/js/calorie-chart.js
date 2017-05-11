@@ -50,7 +50,7 @@ $(document).ready(function(){
                 data[data.length - 4].calories,
                 data[data.length - 5].calories,
                 data[data.length - 6].calories,
-                data[data.length - 7].calories,
+                data[data.length - 7].calories
               ],
               spanGaps: false,
             }

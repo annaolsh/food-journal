@@ -24,7 +24,7 @@ $(document).ready(function() {
       method: 'GET',
       url: 'http://localhost:3000/api/v1/user_foods',
       success: function(data){
-        debugger
+        // debugger
         var today = new Date();
         var dd = today.getDate();
         var mm = today.getMonth()+1; //January is 0!

@@ -7,3 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Journal.create([{food_name: 'Pancakes', cuisine: 'French', calories: '150', date: '', user_id: '1', }])
+
+User.create([{name: "Anna"}, {name: "Daniel"}, {name: "Sylvee"}, {name: "Tina"}])
+Food.create([{name: "Pizza"}, {name: "BiBimBap"}, {name: "Ice cream"}, {name: "Tuna Sandwich"}])
