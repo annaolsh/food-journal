@@ -13,9 +13,50 @@
           <a href="chart.html">chart</a>
         </div>
       </nav>
-      <h1>Hello World</h1>
+      <div id="greeting"></div>
+      <div id="signInSection">
+        <div id="signInForm">
 
-      <div class="row">
+        </div>
+
+        <div id="signUpForm">
+          <h3>Or create a new User:</h3>
+          <input id="newUserName" type="text"></input>
+          <button id="submitNewUser">Create</button>
+        </div>
+      </div>
+
+      <div id="addFood">
+        <h3>Pick a food</h3>
+        <form>
+          <div class="form-group">
+            <label for="date_input">Date</label>
+            <input type="date" class="form-control" id="date" placeholder="Date">
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Select a Food Item</label><br>
+                <select id="food-input"></select>
+                <label>Or Enter a New Food Item</label><br>
+                <input type="text" id="new-food-input"></input>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="calories_num_input">Calories</label>
+                <input type="number" class="form-control" id="calories" placeholder="Calories">
+              </div>
+            </div>
+          </div>
+
+          <button id="submitButton" type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+
+
+      <!-- <div class="row">
         <div class="col-md-6">
           <form>
             <div class="form-group">
@@ -37,10 +78,6 @@
 
             <div class="row">
               <div class="col-md-6">
-                <!-- <div class="form-group">
-                  <label for="food_name_input">Food Item</label>
-                  <input type="text" class="form-control" id="food_id" placeholder="Food Item">
-                </div> -->
                 <div class="form-group">
                   <label for="user_name_input">Food Item</label><br>
                   <select id="food-input">
@@ -61,8 +98,8 @@
 
             <button id="submitButton" type="submit" class="btn btn-primary">Submit</button>
           </form>
-        </div> <!-- col-md-6 -->
-        <div class="col-md-6">
+        </div> -->
+        <div id="results" class="col-md-6">
           <h3 id="todayDate"></h3>
           <h5 id="totalCalories">Total Calorie Intake: </h5>
           <ul id="showResults"></ul>

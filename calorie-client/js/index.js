@@ -1,6 +1,95 @@
+var signInForm = function () {
+  $.ajax({ //choose a user
+    method: 'GET',
+    url: "http://localhost:3000/api/v1/users",
+    success: function (data) {
+      // console.log(data)
+      var options = data.map(function(user) {
+        return `<option value=${user.id}>${user.name}</option>`
+      })
+      $('#signInForm').html(`<h2>Select Your Username:</h2><select id="selectUser">${options.join('')}</select>`)
+    }
+
+  })
+}
+
+var listUserFoods = function (user_foods) {
+  var userFoodList = user_foods.map(function(user_food){
+    return `<li>${user_food.food_name} with ${user_food.calories} cal.</li>`
+  }).join('')
+  $('#showResults').html(userFoodList);
+  return userFoodList
+}
+
+var addForm = function() {
+  //pick existing food or add new food into database
+  // make ajax to get all foods from db
+  $.ajax({
+    url: "http://localhost:3000/api/v1/foods",
+    success: function(data) {
+      //  append option tags with foods to selct tag
+      // console.log(data)
+      var options = data.map(function(food) {
+        return `<option value=${food.id}>${food.name}</option>`
+      }).join("")
+      $('#food-input').html(options)
+      $('#addFood').show()
+  }
+  })
+
+}
+
+
+
 $(document).ready(function() {
   var todayDate = new Date().toJSON().slice(0, 10);
   $('#todayDate').html(todayDate)
+
+  $('#addFood').hide()
+  signInForm() //choose a user
+
+  $('body').on('click', '#signInAgainButton', function(){
+    $('#signInSection').show()
+    $('#greeting').hide()
+    $('#addFood').hide()
+    $('#results').hide()
+  })
+
+  $('body').on('change', '#selectUser', function (e) {
+    console.log($(this).val())
+    var selectedUserId = $(this).val()
+    $.ajax({
+      url: `http://localhost:3000/api/v1/users/${selectedUserId}`,
+      success: function(data){
+        console.log(data)
+        // iterate over data.user_foods and append to dom
+        listUserFoods(data.user_foods)
+        // show form to add a new user_food
+        addForm()
+        $('#greeting').html(`<h1>Hello ${data.name}!</h1><br><button id="signInAgainButton" class="btn btn-primary">Sign in as someone else</button>`)
+        $('#signInSection').hide()
+        $('#greeting').show()
+        $('#results').show()
+      }
+    })
+  })
+
+  $("#submitNewUser").on('click', function(e) {
+    //alert($("#newUserName").val())
+    var newUser = $("#newUserName").val()
+    $.ajax({
+      method: "POST",
+      url: 'http://localhost:3000/api/v1/users',
+      data: {
+        username: newUser
+      },
+      success: function(response) {
+        console.log(response)
+        signInForm()
+      }
+    })
+
+  })
 
   $('#submitButton').on('click', function(e){
     e.preventDefault();
