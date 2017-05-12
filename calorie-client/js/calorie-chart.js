@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  const CHART = document.getElementByIed("lineChart");
+  const CHART = document.getElementById("lineChart");
   const CHART2 = document.getElementById("lineChart2");
   console.log(CHART);
 

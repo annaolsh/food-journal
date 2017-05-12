@@ -12,6 +12,9 @@ class Api::V1::UserFoodsController < ApplicationController
       calories: params[:calories],
       date: params[:date]
     )
+    @userNewFood = @userfood.user.foods.find_or_create_by(name: params[:userfoods])
+    # binding.pry
+    @userNewFood.save
     if @userfood.valid?
       @userfood.save
       render json: @userfood

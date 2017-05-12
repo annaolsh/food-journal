@@ -3,6 +3,7 @@ $(document).ready(function() {
   $('#todayDate').html(todayDate)
 
   $('#addFood').hide()
+  $('#viewChart').hide()
 
   selectUserAndDisplayInfo() //select an existing user and display info
   signInAgain() //switching to another user
@@ -16,26 +17,34 @@ $(document).ready(function() {
     const food_id = $('#food-input').val()
     const new_food_input = $('#new-food-input').val()
     const calories = $('#calories').val()
+    console.log(user_id)
+    console.log(date)
+    console.log(food_id)
+    console.log(new_food_input)
 
-    //If user enters a new food in input, then store that into the data
-    //else, store an existing food from the food.id (and there is empty string in new food input)
+    var newObj = {}
 
-    if(){
-
-    } else(){
-      
-    }
-    debugger
-    $.ajax({
-      method: 'POST',
-      url: 'http://localhost:3000/api/v1/user_foods',
-      data: {
+    if(new_food_input === "") {
+      newObj = {
         food_id: food_id,
         calories: calories,
         user_id: user_id,
         date: date
       }
-    }).then(function(data) {
+    } else {
+      newObj = {
+        calories: calories,
+        user_id: user_id,
+        date: date,
+        userfoods: new_food_input
+      }
+    }
+
+      $.ajax({
+        method: 'POST',
+        url: 'http://localhost:3000/api/v1/user_foods',
+        data: newObj
+      }).then(function(data) {
       $.ajax({
         method: 'GET',
         url: 'http://localhost:3000/api/v1/user_foods',
@@ -89,7 +98,7 @@ var signInForm = function () {
       var options = data.map(function(user) {
         return `<option value=${user.id}>${user.name}</option>`
       })
-      $('#signInForm').html(`<h2>Select Your Username:</h2><select id="selectUser">${options.join('')}</select>`)
+      $('#signInForm').html(`<p class="mtm">Select Your Username:</p><select id="selectUser">${options.join('')}</select>`)
     }
   })
 }
@@ -143,10 +152,11 @@ function selectUserAndDisplayInfo(){
         addForm()
 
         $('#greeting').show()
-        $('#greeting').html(`<h1>Hello ${data.name}!</h1><br><button id="signInAgainButton" class="btn btn-success">Sign in as someone else</button>`)
+        $('#greeting').html(`<h3 class="mtm">Welcome back, ${data.name}!</h3><a href="" id="signInAgainButton"> Not ${data.name}?</a>`)
         $('#signInSection').hide()
         $('#results').show()
         $('#hiddenUserId').val(selectedUserId)
+        $('#viewChart').show()
       }
     })
   })

@@ -4,112 +4,72 @@
     <meta charset="utf-8">
     <title>Welcome to Food Journal</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
     <div class="container">
-      <nav class="navbar navbar-default">
+      <nav class="navbar">
         <div class="navbar-header">
           <a class="navbar-brand" href="index.html">Home</a>
           <a href="chart.html">chart</a>
         </div>
       </nav>
+      <h1 class="mtm">Food Journal</h1>
       <div id="greeting"></div>
-      <div id="signInSection">
-        <div id="signInForm"></div>
-
-        <input id="hiddenUserId" type="hidden" value="">
-
-        <div id="signUpForm">
-          <h3>Or create a new User:</h3>
-          <input id="newUserName" type="text"></input>
-          <button id="submitNewUser">Create</button>
+      <div id="signInSection" class="row">
+        <div class="col-md-4">
+          <div id="signInForm"></div>
+          <input id="hiddenUserId" type="hidden" value="">
+          <div id="signUpForm">
+            <label class="mtm">Or create a new User:</label>
+            <input id="newUserName" class="form-control" type="text"></input>
+            <button id="submitNewUser" class="btn btn-default">Create</button>
+          </div>
         </div>
       </div>
-
-      <div id="addFood">
-        <h3>Pick a food</h3>
-        <form>
-          <div class="form-group">
-            <label for="date_input">Date</label>
-            <input type="date" class="form-control" id="date" placeholder="Date">
-          </div>
-
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label>Select a Food Item</label><br>
-                <select id="food-input"></select>
-                <label>Or Enter a New Food Item</label><br>
-                <input type="text" id="new-food-input"></input>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="calories_num_input">Calories</label>
-                <input type="number" class="form-control" id="calories" placeholder="Calories">
-              </div>
-            </div>
-          </div>
-
-          <button id="submitButton" type="submit" class="btn btn-primary">Submit</button>
-        </form>
-      </div>
-
-
-      <!-- <div class="row">
-        <div class="col-md-6">
+      <div id="viewChart"><button class="btn btn-primary">View Chart</button></div>
+      <div class="row mtl">
+        <div id="addFood" class="col-md-6">
+          <h3 class="mbm">Enter a Food Item</h3>
           <form>
-            <div class="form-group">
-              <label for="user_name_input">Name</label><br>
-              <select id="name-input">
-                <option value=1>Anna</option>
-                <option value=2>Daniel</option>
-                <option value=3>Sylvee</option>
-                <option value=4>Tina</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="date_input">Date</label>
+            <div class="form-group mtm">
+              <label for="date_input">Select a Date</label>
               <input type="date" class="form-control" id="date" placeholder="Date">
             </div>
 
-
-
             <div class="row">
               <div class="col-md-6">
-                <div class="form-group">
-                  <label for="user_name_input">Food Item</label><br>
-                  <select id="food-input">
-                    <option value=1>Pasta Carbonara</option>
-                    <option value=2>Borscht</option>
-                    <option value=3>Ice cream</option>
-                    <option value=4>Tuna Sandwich</option>
-                  </select>
+                <div class="form-group mtm">
+                  <label>Enter a New Food</label><br>
+                  <input type="text" class="form-control" id="new-food-input"></input>
                 </div>
               </div>
               <div class="col-md-6">
-                <div class="form-group">
-                  <label for="calories_num_input">Calories</label>
-                  <input type="number" class="form-control" id="calories" placeholder="Calories">
+                <div class="form-group mtm">
+                  <label>Or Select a Food</label>
+                  <select id="food-input"></select>
                 </div>
               </div>
             </div>
+            <div class="row">
+              <div class="col-md-6 form-group">
+                <label for="calories_num_input">Enter Calories</label>
+                <input type="number" class="form-control" id="calories" placeholder="Calories">
+              </div>
+            </div>
 
-            <button id="submitButton" type="submit" class="btn btn-primary">Submit</button>
+            <button id="submitButton" type="submit" class="btn btn-primary mtm">Submit</button>
           </form>
-        </div> -->
-        <div id="results" class="col-md-6">
-          <h3 id="todayDate"></h3>
-          <h5 id="totalCalories">Total Calorie Intake: </h5>
+        </div>
+
+        <div id="results" class="col-md-6 plm">
+          <h3 id="totalCalories">All Foods You're Eaten For: </h3>
+          <h5 id="todayDate" class="mtm"></h5>
           <ul id="showResults"></ul>
           <h4 id="total_calories"></h4>
-
         </div>
       </div>
-
-    </div>
-
+    </div> <!-- container -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
