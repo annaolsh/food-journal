@@ -4,11 +4,15 @@ $(document).ready(function() {
 
   $('#addFood').hide()
   $('#viewChart').hide()
-
+  $( "#lineChart" ).hide()
   selectUserAndDisplayInfo() //select an existing user and display info
   signInAgain() //switching to another user
   signInForm() //choose a user
   createNewUser()
+
+  $( "#viewChart" ).click(function() {
+    $( "#lineChart" ).slideToggle( "slow" );
+  });
 
   $('#submitButton').on('click', function(e){
     e.preventDefault();
@@ -19,14 +23,14 @@ $(document).ready(function() {
     const calories = $('#calories').val()
     console.log(user_id)
     console.log(date)
-    console.log(food_id)
+    console.log("FOOD ID:", food_id)
     console.log(new_food_input)
 
     var newObj = {}
 
     if(new_food_input === "") {
       newObj = {
-        food_id: food_id,
+        userfoods: food_id,
         calories: calories,
         user_id: user_id,
         date: date
@@ -52,6 +56,7 @@ $(document).ready(function() {
           //console.log(dataResponse) //that one big giant hash
           //console.log(data) //that one single lonely object
 
+          console.log(dataResponse)
           var current_user = data.user_id
 
           //selecting all user_food for current user and current date
@@ -120,8 +125,8 @@ var addForm = function() {
       //  append option tags with foods to selct tag
       // console.log(data)
       var options = data.map(function(food) {
-        return `<option value=${food.id}>${food.name}</option>`
-      }).join("")
+        return `<option value='${food.name}'>${food.name}</option>`
+      })
       $('#food-input').html(options)
       $('#addFood').show()
     }

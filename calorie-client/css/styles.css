@@ -3,11 +3,16 @@ body {
   background: linear-gradient(135deg, #00c6ff 0%,#2989d8 50%,#207cca 73%,#0072ff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00c6ff', endColorstr='#0072ff',GradientType=1 );
 }
+
 .container {
   width: 75%;
   background-color: #FFFFFF;
-  height: 800px;
+  height: 100%;
   padding: 50px;
+}
+
+#viewChart {
+  float: right;
 }
 
 h1 {

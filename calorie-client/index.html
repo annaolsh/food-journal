@@ -8,12 +8,6 @@
   </head>
   <body>
     <div class="container">
-      <nav class="navbar">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="index.html">Home</a>
-          <a href="chart.html">chart</a>
-        </div>
-      </nav>
       <h1 class="mtm">Food Journal</h1>
       <div id="greeting"></div>
       <div id="signInSection" class="row">
@@ -28,6 +22,10 @@
         </div>
       </div>
       <div id="viewChart"><button class="btn btn-primary">View Chart</button></div>
+        <div style="width: 100%;">
+          <canvas id="lineChart" height="400" width="800"></canvas>
+        </div>
+
       <div class="row mtl">
         <div id="addFood" class="col-md-6">
           <h3 class="mbm">Enter a Food Item</h3>
@@ -73,7 +71,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    <!-- <script src="js/calorie-chart.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="js/calorie-chart.js"></script>
     <script src="js/index.js"></script>
   </body>
 </html>
